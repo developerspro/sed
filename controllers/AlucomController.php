@@ -36,12 +36,24 @@ class AlucomController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Alucom::find(),
+            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as aluno,componente.descricao as componente,professor.nome as professor,serie.descricao as serie, nota, bimestre')->
+                join('inner join','aluno','aluno.idaluno=idalunofk')->
+                join('inner join','componente','componente.idcomponente=idcomponentefk')->
+                join('inner join','professor','professor.idprofessor=idprofessorfk')->
+                join('inner join','serie','serie.idserie=aluno.idseriefk')
+            
         ]);
+        
+//         $query = UserWithRoles::find()
+//        ->select("user.id,user.username,user.created_at,GROUP_CONCAT(auth_assignment.item_name ORDER BY auth_assignment.item_name SEPARATOR '<br>') as roles")
+//        ->join('LEFT OUTER JOIN','auth_assignment','auth_assignment.user_id = user.id')
+//        ->join('INNER JOIN','auth_item',' auth_item.name = auth_assignment.item_name AND auth_item.TYPE = 1')
+//        ->groupBy('user.id,user.username,user.created_at'
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+       
     }
 
     /**

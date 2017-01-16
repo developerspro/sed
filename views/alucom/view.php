@@ -10,7 +10,7 @@ $this->title = $model->idalucom;
 $this->params['breadcrumbs'][] = ['label' => 'Alucoms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php //echo '<pre>'; print_r($this->context);die;?>
+
 <div class="alucom-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'idalucom',
-            'idalunofk',
-            'idcomponentefk',
-            'idprofessorfk',
+            ['attribute'=>'idalunofk','value'=>$model->idalunofk0->nome],
+            ['attribute'=>'idcomponentefk','value'=>$model->idcomponentefk0->descricao],
+           ['attribute'=>'idprofessorfk','value'=>$model->idprofessorfk0->nome],
             'nota',
             'bimestre',
         ],

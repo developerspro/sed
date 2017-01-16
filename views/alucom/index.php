@@ -16,17 +16,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Alucom', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+<?php Pjax::begin();
+echo var_dump($dataProvider);
+?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
+    
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'idalucom',
-            'idalunofk',
-            'idcomponentefk',
-            'idprofessorfk',
+            'aluno.nome',
+            'componente',
+            'professor',
             'nota',
-            // 'bimestre',
+             'bimestre',
+           
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
