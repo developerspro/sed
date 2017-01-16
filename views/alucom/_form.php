@@ -22,9 +22,9 @@ use app\models\Componente;
     <?= $form->field($model, 'idcomponentefk')->dropDownList(ArrayHelper::map(Componente::find()->All(), 'idcomponente', 'descricao'),['prompt'=>'selecione um Componente']) ?>
 
     <?= $form->field($model, 'idprofessorfk')->dropDownList(ArrayHelper::map(Professor::find()->All(), 'idprofessor', 'nome'),['prompt'=>'selecione um Professor']) ?>
-    <?= $form->field($model, 'nota')->textInput() ?>
+    <?= $form->field($model, 'nota')->dropDownList(['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10']) ?>
 
-    <?= $form->field($model, 'bimestre')->textInput() ?>
+    <?= $form->field($model, 'bimestre')->dropDownList(['1'=>'1 Bimestre','2'=>'2 Bimestre','3'=>'3 Bimestre','4'=>'4 Bimestre','5'=>'Conceito Final']) ?>
     
 
     <div class="form-group">
