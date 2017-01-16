@@ -49,9 +49,9 @@ class Alucom extends \yii\db\ActiveRecord
     {
         return [
             'idalucom' => 'Idalucom',
-            'idalunofk' => 'Idalunofk',
-            'idcomponentefk' => 'Idcomponentefk',
-            'idprofessorfk' => 'Idprofessorfk',
+            'idalunofk' => 'Aluno',
+            'idcomponentefk' => 'Componente',
+            'idprofessorfk' => 'Professor',
             'nota' => 'Nota',
             'bimestre' => 'Bimestre',
         ];
