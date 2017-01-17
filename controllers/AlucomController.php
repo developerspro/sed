@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\AlucomSearch;
 
 /**
  * AlucomController implements the CRUD actions for Alucom model.
@@ -36,14 +37,17 @@ class AlucomController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as idalunofk,componente.descricao as idcomponentefk,professor.nome as professor,serie.descricao as serie, nota, bimestre')->
+            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as idalunofk,componente.descricao as idcomponentefk,professor.nome as idprofessorfk,serie.descricao as serie, nota, bimestre')->
                 join('inner join','aluno','aluno.idaluno=idalunofk')->
                 join('inner join','componente','componente.idcomponente=idcomponentefk')->
                 join('inner join','professor','professor.idprofessor=idprofessorfk')->
                 join('inner join','serie','serie.idserie=aluno.idseriefk')
         
             
-        ]);   // echo var_dump($dataProvider);
+        ]);  
+                $searchModel = new AlucomSearch();
+		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+// echo var_dump($dataProvider);
         
 //         $query = UserWithRoles::find()
 //        ->select("user.id,user.username,user.created_at,GROUP_CONCAT(auth_assignment.item_name ORDER BY auth_assignment.item_name SEPARATOR '<br>') as roles")
@@ -53,6 +57,7 @@ class AlucomController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+             'searchModel' => $searchModel, 
         ]);
        
     }

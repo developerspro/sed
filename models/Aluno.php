@@ -29,7 +29,7 @@ class Aluno extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome'], 'required'],
+            [['nome','idseriefk'], 'required'],
             [['nome'], 'string', 'max' => 100],
         ];
     }

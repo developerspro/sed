@@ -43,6 +43,7 @@ AppAsset::register($this);
             ['label' => 'Componente', 'url' => ['/componente/index']],
             ['label' => 'Professor', 'url' => ['/professor/index']],
              ['label' => 'Conselho', 'url' => ['/alucom/index']],
+             ['label' => 'Série', 'url' => ['/serie/index']],
             
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nome',
             [                      // the owner name of the model
             'label' => 'Serie',
-            'value' => app\models\Serie::find()->where(['idserie'=>$model->idseriefk])->one(),
+            'value' => app\models\Serie::find()->where(['idserie'=>$model->idseriefk])->one()->descricao,
         ]
         ],
     ]) ?>
