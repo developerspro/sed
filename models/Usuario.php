@@ -31,6 +31,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['usuario'], 'string', 'max' => 50],
             [['senha'], 'string', 'max' => 16],
         ];
+      
     }
 
     /**
@@ -44,4 +45,6 @@ class Usuario extends \yii\db\ActiveRecord
             'senha' => 'Senha',
         ];
     }
-}
+      
+      
+    }

@@ -47,6 +47,7 @@ AppAsset::register($this);
             
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
+                    
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
@@ -60,6 +61,7 @@ AppAsset::register($this);
         ],
     ]);
     NavBar::end();
+  
     ?>
 
     <div class="container">

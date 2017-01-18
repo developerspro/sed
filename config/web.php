@@ -4,6 +4,10 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name'=>'Secretaria Digital',
+    'version'=>'0.1',
+    //'sourcelanguage'=>'pt-BR',
+   // 'timeZone'=>'America/SaoPaulo',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [

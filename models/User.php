@@ -35,6 +35,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     {
        // return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
         $user = DBUser::find()->where(['idusuario'=>$id])->one();
+       
         if($user)
         {
             return new static($user);

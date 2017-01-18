@@ -21,6 +21,13 @@ class AlucomController extends Controller
     public function behaviors()
     {
         return [
+//            'access'=>[
+//                'class'=>  \yii\filters\AccessControl::className(),
+//                'only'=>['index','create','update','delete'],
+//                'rules'=>[[
+//                    'allow'=>false]
+//                    ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
