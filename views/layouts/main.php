@@ -33,33 +33,45 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $menuitems =[['label' => 'Inicio', 'url' => ['/site/index']],
+                 ['label' => 'Sobre', 'url' => ['/site/about']],
+                 ['label' => 'Contato', 'url' => ['/site/contact']]
+    ];
+    $menuItems = [['label' => 'Home','url' => ['/site/index']],
+                  ['label' => 'Shop','url' => ['/shop/index']],
+                  ['label' => 'About','url' => ['/site/about']],
+                  ['label' => 'Contact','url' => ['/site/contact']]
+        ];
+    if (Yii::$app->user->isGuest){
+         $menuitems[] = ['label' => 'Login','url' => ['/site/login']];
+    } else {
+        $menuitems[] = ['label' => 'Aluno','url' => '/aluno/index'];
+        
+           $menuitems[] = ['label' => 'Componente', 'url' => ['/componente/index']];
+           $menuitems[] = ['label' => 'Professor', 'url' => ['/professor/index']];
+           $menuitems[] = ['label' => 'Conselho', 'url' => ['/alucom/index']];
+           $menuitems[] = ['label'=>'Série', 'url' => ['/serie/index']];
+           $menuitems[] = ['label' => 'Logout (' . Yii::$app->user->identity->usuario . ')','url' => ['/site/logout'],
+           'linkOptions' => ['data-method' => 'post']];
+         
+        
+//            'label' => 'Componente', 'url' => ['/componente/index'],
+//            'label' => 'Professor', 'url' => ['/professor/index'],
+//            'label' => 'Conselho', 'url' => ['/alucom/index'],
+//            'label' => 'Série', 'url' => ['/serie/index'],
+//            'label' => 'Logout (' . Yii::$app->user->identity->usuario . ')','url' => ['/site/logout'],
+//           'linkOptions' => ['data-method' => 'post']];
+//        
+        $menuItems[] = ['label' => 'Logout (' . Yii::$app->user->identity->usuario . ')','url' => ['/site/logout'],
+                'linkOptions' => ['data-method' => 'post']
+            ];
+    }
+ 
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Aluno', 'url' => ['/aluno/index']],
-            ['label' => 'Componente', 'url' => ['/componente/index']],
-            ['label' => 'Professor', 'url' => ['/professor/index']],
-             ['label' => 'Conselho', 'url' => ['/alucom/index']],
-             ['label' => 'Série', 'url' => ['/serie/index']],
-            
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-                    
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->usuario . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => $menuitems,
     ]);
+
     NavBar::end();
   
     ?>

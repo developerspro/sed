@@ -40,18 +40,18 @@ class AlucomSearch extends Alucom
      */
     public function search($params)
     {
-        $query = Alucom::find();
+        $query = Alucom::find()->all();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            //'query' => $query,
-            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as idalunofk,componente.descricao as idcomponentefk,professor.nome as idprofessorfk,serie.descricao as serie, nota, bimestre')->
-                join('inner join','aluno','aluno.idaluno=idalunofk')->
-                join('inner join','componente','componente.idcomponente=idcomponentefk')->
-                join('inner join','professor','professor.idprofessor=idprofessorfk')->
-                join('inner join','serie','serie.idserie=aluno.idseriefk')
-        ]);
+            'query' => $query]);
+//            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as idalunofk,componente.descricao as idcomponentefk,professor.nome as idprofessorfk,serie.descricao as serie, nota, bimestre')->
+//                join('inner join','aluno','aluno.idaluno=idalunofk')->
+//                join('inner join','componente','componente.idcomponente=idcomponentefk')->
+//                join('inner join','professor','professor.idprofessor=idprofessorfk')->
+//                join('inner join','serie','serie.idserie=aluno.idseriefk')
+//        ]);
 
         $this->load($params);
 
@@ -62,7 +62,7 @@ class AlucomSearch extends Alucom
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
+        $query->andFilterWhere(['LIKE',
             'idalucom' => $this->idalucom,
             'idalunofk' => $this->idalunofk,
             'idcomponentefk' => $this->idcomponentefk,
