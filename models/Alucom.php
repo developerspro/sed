@@ -80,4 +80,5 @@ class Alucom extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Professor::className(), ['idprofessor' => 'idprofessorfk']);
     }
+    
 }

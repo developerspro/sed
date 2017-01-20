@@ -42,9 +42,13 @@ class AlucomController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-        $dataprovider = new ActiveDataProvider(
-            ['query'=>  Alucom::find()->all()]);
+    { $query = Alucom::find();
+ var_dump($query);die;
+     $dataProvider = new ActiveDataProvider([
+    'query' => $query,
+]);
+        
+        
 //        $dataProvider = new ActiveDataProvider([
 //            'query' => Alucom::find()->select('alucom.idalucom,aluno.nome as idalunofk,componente.descricao as idcomponentefk,professor.nome as idprofessorfk,serie.descricao as serie, nota, bimestre')->
 //                join('inner join','aluno','aluno.idaluno=idalunofk')->
@@ -54,8 +58,8 @@ class AlucomController extends Controller
         
             
 //        ]);  
-                $searchModel = new AlucomSearch();
-		$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+                //$searchModel = new AlucomSearch();
+		//$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 // echo var_dump($dataProvider);
         
 //         $query = UserWithRoles::find()
@@ -66,7 +70,7 @@ class AlucomController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-             'searchModel' => $searchModel, 
+            //'searchModel' => $searchModel, 
         ]);
        
     }

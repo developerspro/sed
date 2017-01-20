@@ -53,4 +53,9 @@ class Aluno extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Alucom::className(), ['idalunofk' => 'idaluno']);
     }
+    
+     public function getIdseriefk0()
+    {
+        return $this->hasOne(Serie::className(), ['idserie' => 'idseriefk']);
+    }
 }

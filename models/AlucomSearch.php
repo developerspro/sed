@@ -40,7 +40,7 @@ class AlucomSearch extends Alucom
      */
     public function search($params)
     {
-        $query = Alucom::find()->all();
+        $query = Alucom::find();
 
         // add conditions that should always apply here
 
@@ -52,7 +52,7 @@ class AlucomSearch extends Alucom
 //                join('inner join','professor','professor.idprofessor=idprofessorfk')->
 //                join('inner join','serie','serie.idserie=aluno.idseriefk')
 //        ]);
-
+  
         $this->load($params);
 
         if (!$this->validate()) {
@@ -62,15 +62,16 @@ class AlucomSearch extends Alucom
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['LIKE',
-            'idalucom' => $this->idalucom,
-            'idalunofk' => $this->idalunofk,
-            'idcomponentefk' => $this->idcomponentefk,
-            'idprofessorfk' => $this->idprofessorfk,
-            'nota' => $this->nota,
-            'bimestre' => $this->bimestre,
-        ]);
-
+//        $query->andFilterWhere([
+//            
+//            'idalucom' => $this->idalucom,
+//            'idalunofk' => $this->idalunofk0->nome,
+////            'idcomponentefk' => $this->idcomponentefk,
+////            'idprofessorfk' => $this->idprofessorfk,
+//            'nota' => $this->nota,
+//            'bimestre' => $this->bimestre,
+//        ]);
+        //var_dump($query);die;
         return $dataProvider;
     }
 }

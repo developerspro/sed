@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Alucoms';
+$this->title = 'Conselho';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="alucom-index">
@@ -17,22 +17,22 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Alucom', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin();
-
+ var_dump($dataProvider);
 ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-          'filterModel' => $searchModel,
+          //'filterModel' => $searchModel,
     
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'idalucom',
             'idalunofk',
-            'idcomponentefk',
+    'idcomponentefk',
             'idprofessorfk',
              'nota',
             'bimestre',
-           
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+
+?>
 <?php Pjax::end(); ?></div>
