@@ -43,7 +43,6 @@ class AlucomController extends Controller
      */
     public function actionIndex()
     { $query = Alucom::find();
- //var_dump($query);
      $dataProvider = new ActiveDataProvider([
     'query' => $query,
 ]);

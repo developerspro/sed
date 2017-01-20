@@ -64,6 +64,7 @@ class AlunoSearch extends Aluno
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome]);
+        
 
         return $dataProvider;
     }

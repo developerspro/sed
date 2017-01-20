@@ -9,6 +9,8 @@ use Yii;
  *
  * @property string $idserie
  * @property string $descricao
+ *
+ * @property Aluno[] $alunos
  */
 class Serie extends \yii\db\ActiveRecord
 {
@@ -40,5 +42,13 @@ class Serie extends \yii\db\ActiveRecord
             'idserie' => 'Idserie',
             'descricao' => 'Descricao',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAlunos()
+    {
+        return $this->hasMany(Aluno::className(), ['idseriefk' => 'idserie']);
     }
 }

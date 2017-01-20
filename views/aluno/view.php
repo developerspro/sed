@@ -30,10 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'idaluno',
             'nome',
-            [                      // the owner name of the model
-            'label' => 'Serie',
-            'value' => app\models\Serie::find()->where(['idserie'=>$model->idseriefk])->one()->descricao,
-        ]
+            ['attribute'=>'idseriefk','value'=>$model->idseriefk0->descricao],
         ],
     ]) ?>
 

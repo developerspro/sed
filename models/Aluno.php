@@ -12,6 +12,7 @@ use Yii;
  * @property string $idseriefk
  *
  * @property Alucom[] $alucoms
+ * @property Serie $idseriefk0
  */
 class Aluno extends \yii\db\ActiveRecord
 {
@@ -29,8 +30,10 @@ class Aluno extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome','idseriefk'], 'required'],
+            [['nome', 'idseriefk'], 'required'],
+            [['idseriefk'], 'integer'],
             [['nome'], 'string', 'max' => 100],
+            [['idseriefk'], 'exist', 'skipOnError' => true, 'targetClass' => Serie::className(), 'targetAttribute' => ['idseriefk' => 'idserie']],
         ];
     }
 
@@ -53,8 +56,11 @@ class Aluno extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Alucom::className(), ['idalunofk' => 'idaluno']);
     }
-    
-     public function getIdseriefk0()
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdseriefk0()
     {
         return $this->hasOne(Serie::className(), ['idserie' => 'idseriefk']);
     }
