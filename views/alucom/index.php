@@ -17,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Alucom', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin();
- var_dump($dataProvider);
-?>    <?= GridView::widget([
+ //var_dump($this);;die;
+?>    <?php $grid = GridView::widget([
         'dataProvider' => $dataProvider,
           //'filterModel' => $searchModel,
     
@@ -33,6 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);
-
+var_dump();
 ?>
 <?php Pjax::end(); ?></div>
