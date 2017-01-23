@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Alucom', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Criar Conselho', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin();
 // var_dump($dataProvider);

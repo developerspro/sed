@@ -96,9 +96,20 @@ class AlucomController extends Controller
     {
         $model = new Alucom();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idalucom]);
-        } else {
+        if ($model->load(Yii::$app->request->post()) ) { //&& $model->save()    
+          $verdade = $model->find()->where(['idalunofk'=>$model->idalunofk0->idaluno,
+                     'idcomponentefk'=>$model->idcomponentefk0->idcomponente,
+                     'bimestre'=>$model->bimestre,
+                     'idprofessorfk'=>$model->idprofessorfk0->idprofessor
+              ])->exists();
+          if($verdade){
+              return $this->render('say',['message'=>'Não é possivel registrar esta nota para este conselho pois já existe']);
+          } else { 
+              $model->save();
+                 return $this->redirect(['view', 'id' => $model->idalucom]);
+          }
+          
+       } else {
             return $this->render('create', [
                 'model' => $model,
             ]);
