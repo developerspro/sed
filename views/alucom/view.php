@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
            ['attribute'=>'idprofessorfk','value'=>$model->idprofessorfk0->nome],
             'nota',
             'bimestre',
+            'falta'
         ],
     ]) ?>
 

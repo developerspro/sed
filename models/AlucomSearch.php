@@ -18,7 +18,7 @@ class AlucomSearch extends Alucom
     public function rules()
     {
         return [
-            [['idalucom', 'idalunofk', 'idcomponentefk', 'idprofessorfk', 'nota', 'bimestre'], 'integer'],
+            [['idalucom', 'idalunofk', 'idcomponentefk', 'idprofessorfk', 'nota', 'bimestre','falta'], 'integer'],
         ];
     }
 

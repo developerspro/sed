@@ -25,6 +25,8 @@ use app\models\Componente;
     <?= $form->field($model, 'nota')->dropDownList(['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10']) ?>
 
     <?= $form->field($model, 'bimestre')->dropDownList(['1'=>'1 Bimestre','2'=>'2 Bimestre','3'=>'3 Bimestre','4'=>'4 Bimestre','5'=>'Conceito Final']) ?>
+     
+    <?= $form->field($model, 'falta')->textInput() ?>
     
 
     <div class="form-group">

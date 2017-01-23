@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Alucom */
 
-$this->title = 'Create Alucom';
-$this->params['breadcrumbs'][] = ['label' => 'Alucoms', 'url' => ['index']];
+$this->title = 'Criar Conselho';
+$this->params['breadcrumbs'][] = ['label' => 'Conselho', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="alucom-create">

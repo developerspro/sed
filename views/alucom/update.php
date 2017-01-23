@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Alucom */
 
-$this->title = 'Update Alucom: ' . $model->idalucom;
-$this->params['breadcrumbs'][] = ['label' => 'Alucoms', 'url' => ['index']];
+$this->title = 'Atualizar Conselho: ' . $model->idalucom;
+$this->params['breadcrumbs'][] = ['label' => 'Conselho', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idalucom, 'url' => ['view', 'id' => $model->idalucom]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

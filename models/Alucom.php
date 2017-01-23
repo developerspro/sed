@@ -34,8 +34,8 @@ class Alucom extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idalunofk','idcomponentefk','idprofessorfk'],'required'],
-            [['nota', 'bimestre'], 'integer'],
+            [['idalunofk','idcomponentefk','idprofessorfk','falta'],'required'],
+            [['nota', 'bimestre','falta'], 'integer'],
             [['idalunofk'], 'exist', 'skipOnError' => true, 'targetClass' => Aluno::className(), 'targetAttribute' => ['idalunofk' => 'idaluno']],
             [['idcomponentefk'], 'exist', 'skipOnError' => true, 'targetClass' => Componente::className(), 'targetAttribute' => ['idcomponentefk' => 'idcomponente']],
             [['idprofessorfk'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['idprofessorfk' => 'idprofessor']],
@@ -54,6 +54,7 @@ class Alucom extends \yii\db\ActiveRecord
             'idprofessorfk' => 'Professor',
             'nota' => 'Nota',
             'bimestre' => 'Bimestre',
+            'falta' =>'Falta'
         ];
     }
 

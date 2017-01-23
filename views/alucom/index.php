@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
           ['label'=>'Professor','value'=>'idprofessorfk0.nome'], 
             'nota',
             'bimestre',
+            'falta',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);
